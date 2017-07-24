@@ -1,8 +1,8 @@
-var express = require('express')
-, app = express()
-, server = require('http').createServer(app)
-, routes = require('./routes')
-, chatServer =require('./chatServer')(server);
+const express = require('express'),
+app = express(),
+server = require('http').createServer(app),
+routes = require('./routes'),
+chatServer =require('./chatServer')(server);,
 
 app.configure(function() {
   app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);

@@ -1,15 +1,15 @@
 module.exports = function(server) {
-  var uuid = require('node-uuid')
-  _ = require('underscore')._
-  , Room = require('./utils/room')
-  , people = {}
-  , rooms = {}
-  , chatHistory = {}
-  , chatHistoryCount = 10
-  , sockets = []
-  , io = require('socket.io').listen(server)
-  , utils = require('./utils/utils')
-  , purgatory = require('./utils/purge');
+  const uuid = require('node-uuid')
+  _ = require('underscore')._, 
+  Room = require('./utils/room'),
+  people = {},
+  rooms = {},
+  chatHistory = {},
+  chatHistoryCount = 10,
+  sockets = [],
+  io = require('socket.io').listen(server),
+  utils = require('./utils/utils'),
+  purgatory = require('./utils/purge');,
   io.set('log level', 1);
 
   io.sockets.on('connection', function (socket) {
@@ -48,8 +48,8 @@ module.exports = function(server) {
     });
 
     socket.on('suggest', function(username, cb) {
-      var random = Math.floor(Math.random()*1001);
-      var suggestedUsername = username + random;
+      const random = Math.floor(Math.random()*1001);
+      const suggestedUsername = username + random;
       cb({suggestedUsername: suggestedUsername});
     });
 
@@ -79,7 +79,7 @@ module.exports = function(server) {
 
 socket.on('userDetails', function(data) {
       //update the people object with further user details
-      var countryCode = data.countrycode.toLowerCase();
+      const countryCode = data.countrycode.toLowerCase();
       people[socket.id].countrycode = countryCode;
       people[socket.id].device = data.device;
       utils.sendToAllConnectedClients(io,'updateUserDetail', people);
