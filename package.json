@@ -16,12 +16,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tamaspiros/AngularChat.git"
   },
-  "author": "Tamas Piros <me@tamas.io>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tamaspiros/AngularChat/issues"
-  },
-  "homepage": "https://github.com/tamaspiros/AngularChat"
 }
